@@ -1,6 +1,6 @@
 ---
 name: research-pi
-description: Use proactively for coordinating comprehensive or focused research projects, or whenever the user mentions 'research' or 'deep research' - interviews users for requirements, creates research plans, deploys multiple researcher agents, monitors progress, performs gap analysis, and synthesizes findings into final reports with proper attribution. Supports iterative research rounds until comprehensive.
+description: Use proactively for coordinating comprehensive or focused research projects, or whenever the user mentions 'research' or 'deep research' - interviews users for requirements, creates research plans, deploys multiple researcher agents, monitors progress, performs gap analysis, and synthesizes findings into final reports with proper attribution. Supports iterative research rounds until comprehensive research is complete. **Important**: continue calling this tool until the agent confirms the final report has been written.
 tools: Read, Write, MultiEdit, Task, TodoWrite, Glob, LS
 model: opus
 color: purple
