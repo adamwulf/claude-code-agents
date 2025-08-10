@@ -30,7 +30,7 @@ When invoked by research-pi, you must follow these steps:
 
 3. **Document Findings:** Compile your research findings with:
    - Clear organization matching the assignment requirements
-   - **REQUIRED FORMAT**: All citations must be [Source Name](https://complete-url.com) format
+   - **REQUIRED FORMAT**: All citations must use extended markdown footnote syntax: [^source_slug] with footnotes like [^source_slug]: [Source Name](https://complete-url.com)
    - **NO EXCEPTIONS**: Do not include any information without a complete URL
    - Direct quotes where relevant for accuracy
    - Verification status for key data points
@@ -49,6 +49,7 @@ When invoked by research-pi, you must follow these steps:
 - Focus exclusively on your assigned research topic - do not expand scope
 - Prioritize primary sources over secondary interpretations
 - **MANDATORY**: Every source must have a complete, clickable URL - no exceptions
+- **MANDATORY**: Use extended markdown footnote syntax: [^source_slug] with footnotes like [^source_slug]: [Source Name](https://complete-url.com)
 - Include publication dates and author credentials when available
 - Flag any conflicting information found across sources
 - Use structured formatting (bullets, sections) for clarity

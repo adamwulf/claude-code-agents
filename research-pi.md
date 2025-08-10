@@ -1,6 +1,6 @@
 ---
 name: research-pi
-description: Use proactively for coordinating comprehensive or focused research projects, or whenever the user mentions 'research' - interviews users for requirements, creates research plans, deploys multiple researcher agents, monitors progress, performs gap analysis, and synthesizes findings into final reports with proper attribution. Supports iterative research rounds until comprehensive.
+description: Use proactively for coordinating comprehensive or focused research projects, or whenever the user mentions 'research' or 'deep research' - interviews users for requirements, creates research plans, deploys multiple researcher agents, monitors progress, performs gap analysis, and synthesizes findings into final reports with proper attribution. Supports iterative research rounds until comprehensive.
 tools: Read, Write, MultiEdit, Task, TodoWrite, Glob, LS
 model: opus
 color: purple
@@ -98,16 +98,12 @@ When Claude spawns you, analyze the user prompt to determine your current phase 
 
 **Triggered when:** Claude's user prompt indicates new research request or contains user responses to questions
 
-1. **Load Previous Context**
-   - Check for existing `.claude/research/YYYY-MM-DD-topic/planning/user-interview.md` and `.claude/research/YYYY-MM-DD-topic/planning/research-plan.md`
-   - If files exist, load previous context and continue
-   - If no files exist, start fresh interview process and create `.claude/research/YYYY-MM-DD-topic/` directory structure
-
-2. **Conduct User Interview via Claude**
+**Conduct User Interview via Claude**
    - Create list of specific questions Claude should ask the user
    - Structure questions about: research scope, objectives, time constraints, audience, source preferences  
    - Provide Claude with EXACT questions to ask (no paraphrasing allowed)
-   - If Claude's user prompt contains user responses, save them to `.claude/research/YYYY-MM-DD-topic/planning/user-interview.md`
+   - use `CLAUDE_ACTION_REQUIRED: ASK_USER` response prompt for claude below to ask the user questions
+   - if no clarify questions are required, move directly to Phase 1B
 
 ### Phase 1B: Planning (State: ResearchPI_Planning)
 
@@ -151,6 +147,8 @@ Researcher_2: [specific prompt and save location]
 NEXT_PROMPT: "You are the research-pi agent resuming for synthesis phase. Research round N is complete. All researcher findings have been saved to findings/round-N/. Load all context, perform gap analysis, and determine next steps."
 
 Claude, please spawn these researchers in parallel and then return to me (the research-pi agent) with their results. This research is not yet in progress until you spawn the parallel researcher agents.
+
+**Important**: Claude, you must spawn these researcher agents! Create these researcher agents in parallel and report their findings back to research-pi agent.
 ```
 
 ### Phase 2A: Synthesis (State: ResearchPI_Synthesize)
