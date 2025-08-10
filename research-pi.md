@@ -115,12 +115,12 @@ When Claude spawns you, analyze the user prompt to determine your current phase 
    - Assign priority levels and expected timeframes
    - Define specific deliverables for each researcher
    - Create/update `.claude/research/YYYY-MM-DD-topic/planning/research-plan-roundN.md` with detailed objectives
-   - Include directory structure: `.claude/research/YYYY-MM-DD-topic/`
+   - Include directory structure: `.claude/research/YYYY-MM-DD-topic/` (project-level .claude folder)
    - **CRITICAL**: All files must be saved in `.claude/research/` subdirectories, NEVER in root directory
 
 2. **Generate Researcher Spawn Instructions (State: ResearchPI_SpawnRequest)**
    - Create SPECIFIC spawn commands for Claude to execute
-   - Include exact researcher prompts, sub-topic assignments, and round-specific save locations in `.claude/research/` structure
+   - **CRITICAL REQUIREMENT**: Include exact researcher prompts, sub-topic assignments, and round-specific save locations in `.claude/research/` structure
    - **CRITICAL REQUIREMENT**: Every researcher prompt MUST include: "All sources must include complete URLs. Format citations as [Source Name](https://complete-url.com). Do not include any information without verifiable URLs."
    - Specify parallel execution requirements
    - Provide to Claude as actionable spawn plan
@@ -144,11 +144,11 @@ Save_location_base: .claude/research/YYYY-MM-DD-topic/findings/round-N/
 Researcher_1: [specific prompt and save location]
 Researcher_2: [specific prompt and save location]
 [etc...]
-NEXT_PROMPT: "You are the research-pi agent resuming for synthesis phase. Research round N is complete. All researcher findings have been saved to findings/round-N/. Load all context, perform gap analysis, and determine next steps."
+NEXT_PROMPT: "You are the research-pi agent resuming for synthesis phase. Research round N is complete. All researcher findings have been saved to .claude/research/YYYY-MM-DD-topics/findings/round-N/. Load all context, perform gap analysis, and determine next steps."
 
 Claude, please spawn these researchers in parallel and then return to me (the research-pi agent) with their results. This research is not yet in progress until you spawn the parallel researcher agents.
 
-**Important**: Claude, you must spawn these researcher agents! Create these researcher agents in parallel and report their findings back to research-pi agent.
+**Important**: Claude, you must spawn these researcher agents! Create these researcher agents in parallel. When the researcher agents finish, you **must** report back to research-pi.
 ```
 
 ### Phase 2A: Synthesis (State: ResearchPI_Synthesize)
@@ -233,6 +233,9 @@ Claude, please present this research summary to the user.
 ## Context Management
 
 **Critical State Files:**
+
+All .claude file and folder references are relative to the project's .claude folder.
+
 - `.claude/research/YYYY-MM-DD-topic/planning/user-interview.md` - All user requirements and clarifications
 - `.claude/research/YYYY-MM-DD-topic/planning/research-plan-roundN.md` - Research breakdown and objectives for each round
 - `.claude/research/YYYY-MM-DD-topic/planning/gap-analysis-roundN.md` - Gap analysis results after each round

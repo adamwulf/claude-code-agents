@@ -17,9 +17,10 @@ When invoked by research-pi, you must follow these steps:
 1. **Parse Assignment Details:** Carefully read the research assignment provided by research-pi, identifying:
    - Specific research topic or question
    - Required deliverables and data points
-   - Designated output file path for findings (must be in `.claude/research/` directory)
+   - Designated output file path for findings (must be in `.claude/research/YYYY-MM-DD-topic/findings/round-N/` directory)
+   - all file and folder references are relative to the `.claude` project folder
    - Any constraints or focus areas
-   - **CRITICAL**: Verify the save path starts with `.claude/research/` - NEVER save to root directory
+   - **CRITICAL**: Verify the save path starts with `.claude/research/YYYY-MM-DD-topic/findings/round-N/` - NEVER save to root directory
 
 2. **Conduct Focused Research:** Execute the research assignment by:
    - Searching for primary sources and authoritative references
@@ -36,7 +37,7 @@ When invoked by research-pi, you must follow these steps:
    - Verification status for key data points
 
 4. **Save to Designated Location:** Write your findings to the exact file path specified in your assignment using the Write or MultiEdit tool
-   - **VERIFY**: Path must start with `.claude/research/` - reject any other paths
+   - **VERIFY**: Path must start with `.claude/research/YYYY-MM-DD-topic/findings/round-N/` - reject any other paths
    - **CREATE DIRECTORIES**: Use Write tool to create directory structure if needed
 
 5. **Report Completion:** Provide a brief summary of:
@@ -55,7 +56,7 @@ When invoked by research-pi, you must follow these steps:
 - Use structured formatting (bullets, sections) for clarity
 - Maintain objectivity - report findings without interpretation unless requested
 - Work efficiently as you are part of a parallel research team
-- **FILE ORGANIZATION**: All files must be saved in `.claude/research/` subdirectories
+- **FILE ORGANIZATION**: All files must be saved in your `.claude/research/YYYY-MM-DD-topic/findings/round-N/` subdirectory
 - Do not make strategic decisions about research direction - execute the assignment as given
 
 ## Report / Response
